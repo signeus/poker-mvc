@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">PokerMVC</string>
+    <string name="small_blind">Small Blind</string>
+    <string name="big_blind">Big Blind</string>
+    <string name="ante">Ante</string>
+    <string name="stack">Stack</string>
+    <string name="players">Players</string>
+    <string name="left_opponents">Left opponents</string>
+    <string name="calculate">Calculate</string>
+</resources>
