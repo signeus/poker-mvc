@@ -15,20 +15,22 @@
         android:layout_height="match_parent"
         android:paddingBottom="100dp"
         android:paddingRight="100dp"
-        android:paddingLeft="100dp">
+        android:paddingLeft="100dp"
+        android:gravity="top">
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/txvSmallBlind"
-                android:paddingRight="100dp"
-                android:paddingLeft="100dp"
-                android:text="@string/small_blind" />
+                android:text="@string/small_blind"
+                android:paddingTop="50dp"
+                android:gravity="center" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -36,8 +38,8 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/big_blind"
                 android:id="@+id/txvBigBlind"
-                android:paddingRight="100dp"
-                android:paddingLeft="100dp" />
+                android:paddingTop="50dp"
+                android:gravity="center" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -45,14 +47,15 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/ante"
                 android:id="@+id/txvAnte"
-                android:paddingLeft="100dp"
-                android:paddingRight="100dp" />
+                android:paddingTop="50dp"
+                android:gravity="center" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="15dp">
+            android:paddingTop="15dp"
+            android:gravity="center">
 
             <EditText
                 android:layout_width="wrap_content"
@@ -60,8 +63,8 @@
                 android:inputType="numberSigned"
                 android:ems="10"
                 android:id="@+id/edtSmallBlind"
-                android:paddingRight="100dp"
-                android:paddingLeft="100dp" />
+                android:paddingTop="50dp"
+                android:gravity="center" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -69,8 +72,8 @@
                 android:inputType="numberSigned"
                 android:ems="10"
                 android:id="@+id/edtBigBlind"
-                android:paddingLeft="100dp"
-                android:paddingRight="100dp" />
+                android:paddingTop="50dp"
+                android:gravity="center" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -78,14 +81,15 @@
                 android:inputType="numberSigned"
                 android:ems="10"
                 android:id="@+id/edtAnte"
-                android:paddingLeft="100dp"
-                android:paddingRight="100dp" />
+                android:paddingTop="50dp"
+                android:gravity="center" />
 
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -93,9 +97,8 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/stack"
                 android:id="@+id/txvStack"
-                android:paddingLeft="100dp"
                 android:paddingTop="50dp"
-                android:paddingRight="100dp" />
+                android:gravity="center" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -103,13 +106,13 @@
                 android:inputType="numberSigned"
                 android:ems="10"
                 android:id="@+id/edtStack"
-                android:paddingLeft="100dp"
                 android:paddingTop="50dp"
-                android:paddingRight="100dp" />
+                android:gravity="center" />
         </TableRow>
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -117,9 +120,8 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/players"
                 android:id="@+id/txvPlayers"
-                android:paddingLeft="100dp"
                 android:paddingTop="50dp"
-                android:paddingRight="100dp" />
+                android:gravity="center" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -127,13 +129,13 @@
                 android:inputType="numberSigned"
                 android:ems="10"
                 android:id="@+id/edtPlayers"
-                android:paddingLeft="100dp"
                 android:paddingTop="50dp"
-                android:paddingRight="100dp" />
+                android:gravity="center" />
         </TableRow>
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -142,8 +144,7 @@
                 android:text="@string/left_opponents"
                 android:id="@+id/txvLeftOpponents"
                 android:paddingTop="50dp"
-                android:paddingLeft="100dp"
-                android:paddingRight="100dp" />
+                android:gravity="center" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -151,15 +152,15 @@
                 android:inputType="numberSigned"
                 android:ems="10"
                 android:id="@+id/edtLeftOpponents"
-                android:paddingLeft="100dp"
                 android:paddingTop="50dp"
-                android:paddingRight="100dp" />
+                android:gravity="center" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="50dp">
+            android:paddingTop="50dp"
+            android:gravity="center">
 
             <Button
                 android:layout_width="match_parent"
@@ -168,7 +169,8 @@
                 android:id="@+id/btnCalculate"
                 android:padding="25dp"
                 android:layout_span="3"
-                android:paddingTop="50dp" />
+                android:paddingTop="50dp"
+                android:gravity="center" />
         </TableRow>
 
     </TableLayout>
