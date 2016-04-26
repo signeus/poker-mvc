@@ -84,6 +84,17 @@
                 android:paddingTop="50dp"
                 android:gravity="center" />
         </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/tblPowerNumbers"
+                android:foreground="@color/colorPrimary"></TableLayout>
+        </TableRow>
     </TableLayout>
 
 </RelativeLayout>
