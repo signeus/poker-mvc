@@ -11,12 +11,16 @@ public class PowerNumber {
 
         public PowerNumber(int value)
         {
+            if(value == 100)
+                this.isPlus = true;
+            if(value == 0)
+                this.isNegative = true;
             this.value = value;
         }
-        ///Summary
-        //This constructor is used by to positive or negative, where you pass a null and other boolean.
-        public PowerNumber(boolean isPlus, boolean isNegative)
+
+        public PowerNumber(boolean isPlus, boolean isNegative, int value)
         {
+            this.value = value;
             if(isPlus == true && isNegative == false){
                 this.isPlus = isPlus;
             }
@@ -58,10 +62,10 @@ public class PowerNumber {
         public static PowerNumber determinateValue(int value)
         {
             if (value == 100)
-                return new PowerNumber(true, false);
+                return new PowerNumber(true, false, value);
 
             if (value == 0)
-                return new PowerNumber(false, true);
+                return new PowerNumber(false, true, value);
 
             return new PowerNumber(value);
         }
@@ -74,7 +78,7 @@ public class PowerNumber {
             if (currentValue.getIsNegative())
                 return false;
 
-            if (currentValue.getValue() > weight)
+            if (weight >= currentValue.getValue())
                 return true;
 
             return false;

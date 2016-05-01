@@ -2,6 +2,10 @@ package com.apps.kev.pokermvc;
 
 import org.junit.Test;
 
+import logic.NgCalculate;
+import logic.interfaces.INgCalculate;
+import models.ResultStat;
+
 import static org.junit.Assert.*;
 
 /**

@@ -31,16 +31,21 @@ public class NgCalculate implements INgCalculate {
             //Calculating PN
             double number1 = stat.getLeftOpponents() * resultStat.getCSI();
             double oneFifth = smallBlind / 5;
-            if(stat.getAnte() > oneFifth && stat.getPlayers() > 6){
+            if(stat.getAnte() > oneFifth && stat.getPlayers() > 8){
                 number1 -= ((number1*5)/100);
             }
             resultStat.setPN(number1);
         }
         return resultStat;
     }
+    //@Override
+    //public boolean isLogicalBlind(int small, int big)
+    //{
+    //    return (small*2 == big);
+    //}
     @Override
     public boolean isLogicalBlind(int small, int big)
     {
-        return (small*2 == big);
+        return (small <= big);
     }
 }

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="NotIntegerNumber">Not is a integer number.</string>
+    <string name="TooManyPlayers">Too many players, the limit is 10.</string>
+    <string name="LowerThan">" must be lower than "</string>
+    <string name="IsRequired">" is required."</string>
+    <string name="SomethingIsHasFailed">Something it has failed.</string>
+</resources>

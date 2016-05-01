@@ -10,6 +10,7 @@ import android.widget.TableLayout;
 import com.apps.kev.pokermvc.R;
 
 import models.PowerNumberTable;
+import models.ResultStat;
 
 public class ResultActivity extends AppCompatActivity {
 
@@ -21,6 +22,7 @@ public class ResultActivity extends AppCompatActivity {
         int CPRvalue = getIntent().getIntExtra("CPR", 0);
         double CSIvalue = getIntent().getDoubleExtra("CSI", 0);
         double PNvalue = getIntent().getDoubleExtra("PN", 0);
+        ResultStat resultStat = new ResultStat(CPRvalue, CSIvalue, PNvalue);
         EditText CPR = (EditText) findViewById(R.id.edtCPR);
             CPR.setText(String.valueOf(CPRvalue));
         EditText CSI = (EditText) findViewById(R.id.edtCSI);
@@ -28,9 +30,10 @@ public class ResultActivity extends AppCompatActivity {
         EditText PN = (EditText) findViewById(R.id.edtPN);
             PN.setText(String.valueOf(PNvalue));
 
+
         TableLayout tableLayout = (TableLayout)findViewById(R.id.tblPowerNumbers);
         Context contextApp = getApplicationContext();
-        PowerNumberTable tableNumber = new PowerNumberTable(tableLayout, contextApp);
+        PowerNumberTable tableNumber = new PowerNumberTable(tableLayout, contextApp, resultStat);
         tableLayout = tableNumber.getTableView();
     }
 }

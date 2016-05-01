@@ -14,16 +14,14 @@
         android:layout_height="match_parent"
         android:id="@+id/scrollView" >
 
-        <LinearLayout
-            android:orientation="vertical"
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
+            android:layout_height="match_parent">
 
-            <LinearLayout
-                android:orientation="horizontal"
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                android:gravity="center">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -42,12 +40,12 @@
                     android:id="@+id/edtCPR"
                     android:paddingTop="50dp"
                     android:gravity="center" />
-            </LinearLayout>
+            </TableRow>
 
-            <LinearLayout
-                android:orientation="horizontal"
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                android:gravity="center">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -66,12 +64,11 @@
                     android:id="@+id/edtCSI"
                     android:gravity="center"
                     android:paddingTop="50dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
+            </TableRow>
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="match_parent"
+                android:gravity="center">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -90,15 +87,12 @@
                     android:id="@+id/edtPN"
                     android:paddingTop="50dp"
                     android:gravity="center" />
-            </LinearLayout>
+            </TableRow>
 
-            <LinearLayout
-                android:orientation="horizontal"
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp" >
+                android:layout_height="match_parent"
+                android:gravity="center">
 
                 <TableLayout
                     android:id="@+id/tblPowerNumbers"
@@ -110,9 +104,8 @@
                     android:stretchColumns="*"
                     android:scrollHorizontally="true"
                     android:ellipsize="end"></TableLayout>
-            </LinearLayout>
-
-        </LinearLayout>
+            </TableRow>
+        </TableLayout>
     </ScrollView>
 
 </RelativeLayout>

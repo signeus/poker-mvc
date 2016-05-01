@@ -1,0 +1,4 @@
+<resources>
+    <string name="numberInteger">"^[0-9]{1,10}$"</string>
+    <string name="numberIntegerTest">"^[0-9]*$"</string>
+</resources>

@@ -7,7 +7,19 @@ public class ResultStat {
     private int CPR;
     private double CSI;
     private double PN;
+    private int intPN;
 
+    public ResultStat(){
+        this.CPR = 0;
+        this.CSI = 0;
+        this.PN = 0;
+    }
+    public ResultStat(int CPR, double CSI, double PN){
+        this.CPR = CPR;
+        this.CSI = CSI;
+        this.PN = PN;
+        this.intPN = new Double(PN).intValue();
+    }
     public int getCPR() {
         return CPR;
     }
@@ -30,5 +42,9 @@ public class ResultStat {
 
     public void setPN(double PN) {
         this.PN = PN;
+    }
+
+    public int getIntPN() {
+        return intPN;
     }
 }

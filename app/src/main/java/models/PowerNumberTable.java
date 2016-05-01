@@ -1,10 +1,17 @@
 package models;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.support.annotation.DrawableRes;
+import android.support.v4.content.ContextCompat;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+
+import com.apps.kev.pokermvc.R;
 
 /**
  * Created by Kev on 25/04/2016.
@@ -14,10 +21,12 @@ public class PowerNumberTable {
         private PowerNumber[][] table = new PowerNumber[numCards][numCards];
         private Context context;
         private TableLayout tableView;
+        private ResultStat resultStat;
 
-        public PowerNumberTable(TableLayout tableView, Context context)
+        public PowerNumberTable(TableLayout tableView, Context context, ResultStat resultStat)
         {
             this.context = context;
+            this.resultStat = resultStat;
             this.tableView = generateTable(tableView);
         }
 
@@ -41,21 +50,21 @@ public class PowerNumberTable {
 
         private TableLayout generateTable(TableLayout tableView)
         {
-            //Table[rowNumber, i] = PowerNumber.determinateValue(rowData[i]);
             TableLayout tbl = (TableLayout)tableView;
-            tbl.addView(CreateRow(0, RowA));
-            tbl.addView(CreateRow(1, RowK));
-            tbl.addView(CreateRow(2, RowQ));
-            tbl.addView(CreateRow(3, RowJ));
-            tbl.addView(CreateRow(4, RowT));
-            tbl.addView(CreateRow(5, Row9));
-            tbl.addView(CreateRow(6, Row8));
+            tbl.addView(CreateHeader(13,true,false));
+            tbl.addView(CreateRow(1, RowA));
+            tbl.addView(CreateRow(13, RowK));
+            tbl.addView(CreateRow(12, RowQ));
+            tbl.addView(CreateRow(11, RowJ));
+            tbl.addView(CreateRow(10, RowT));
+            tbl.addView(CreateRow(9, Row9));
+            tbl.addView(CreateRow(8, Row8));
             tbl.addView(CreateRow(7, Row7));
-            tbl.addView(CreateRow(8, Row6));
-            tbl.addView(CreateRow(9, Row5));
-            tbl.addView(CreateRow(10, Row4));
-            tbl.addView(CreateRow(11, Row3));
-            tbl.addView(CreateRow(12, Row2));
+            tbl.addView(CreateRow(6, Row6));
+            tbl.addView(CreateRow(5, Row5));
+            tbl.addView(CreateRow(4, Row4));
+            tbl.addView(CreateRow(3, Row3));
+            tbl.addView(CreateRow(2, Row2));
 
             return tbl;
         }
@@ -64,40 +73,82 @@ public class PowerNumberTable {
         {
             // declare a new row
             TableRow newRow = new TableRow(context);
+            //Initial Column to Header
+            TextView txtViewMargin = new TextView(context);
+            txtViewMargin.setGravity(Gravity.CENTER);
+            txtViewMargin.setTextColor(ContextCompat.getColor(context, R.color.white));
+            txtViewMargin.setText(String.valueOf(Card.toString(rowNumber)));
+            // add views to the row
+            newRow.setBackgroundColor(ContextCompat.getColor(context, R.color.darkGrey));
+            newRow.addView(txtViewMargin);
+            //bucle for columns
             for (int i = 0; i <= 12; i++)
             {
                 TextView txtView = new TextView(context);
+                txtView.setTextColor(ContextCompat.getColor(context, R.color.white));
+                txtView.setBackgroundColor(addColorToResult(resultStat.getIntPN(),PowerNumber.determinateValue(rowData[i]).getValue()));
+                txtView.setGravity(Gravity.CENTER);
+                txtView.setPadding(5,5,5,5);
                 PowerNumber powerNumber = PowerNumber.determinateValue(rowData[i]);
                 txtView.setText(String.valueOf(powerNumber.ToString()));
                 // add views to the row
                 newRow.addView(txtView);
             }
-            // you would actually want to set properties on this before adding it
+
+            LinearLayout linearLayout = new LinearLayout(context);
+            linearLayout.setMinimumWidth(1);
+            linearLayout.setMinimumHeight(5);
+
             // add the row to the table layout
             return newRow;
         }
 
-       /*
-           public static PowerNumber[,] CreateWeightTable()
-            {
-                return new PowerNumbersTable().Table;
-            }
-        */
-    /*
-        public static bool[,] CreateValidationTable(int powerNumber)
-    {
-        bool[,] table = new bool[13, 13];
-        var powerNumberTable = new PowerNumbersTable();
-        for (int row = 0; row < 13; row++)
-        {
-            for (int col = 0; col < 13; col++)
-            {
-                var currentValue = powerNumberTable.Table[row, col];
-                table[row, col] = PowerNumber.GetIsValid(currentValue, powerNumber);
-            }
-        }
-
-        return table;
+    private int addColorToResult(int currentValue, int weight){
+        PowerNumber powerNumber = new PowerNumber(currentValue);
+        int color = ContextCompat.getColor(context, R.color.black);
+        boolean isValid = powerNumber.getIsValid(powerNumber, weight);
+        if(isValid)
+            color = ContextCompat.getColor(context, R.color.darkGreen);
+        if(!isValid)
+            color = ContextCompat.getColor(context, R.color.darkRed);
+        return color;
     }
-    */
+
+    private TableRow CreateHeader(int fields, boolean withFirst, boolean withLast)
+    {
+        TableRow newRow = new TableRow(context);
+        if(withFirst)
+        {
+            TextView txtViewMargin = new TextView(context);
+            txtViewMargin.setGravity(Gravity.CENTER);
+            txtViewMargin.setTextColor(ContextCompat.getColor(context, R.color.white));
+            txtViewMargin.setText(" ");
+            newRow.addView(txtViewMargin);
+        }
+        for (int i = 1; i <= fields; i++)
+        {
+            TextView txtView = new TextView(context);
+            txtView.setTextColor(ContextCompat.getColor(context, R.color.white));
+            txtView.setBackgroundColor(ContextCompat.getColor(context, R.color.darkGrey));
+            txtView.setGravity(Gravity.CENTER);
+            txtView.setPadding(5,5,5,5);
+            txtView.setText(String.valueOf(Card.toString(i)));
+            newRow.addView(txtView);
+        }
+        if(withLast)
+        {
+            TextView txtViewMargin = new TextView(context);
+            txtViewMargin.setGravity(Gravity.CENTER);
+            txtViewMargin.setTextColor(ContextCompat.getColor(context, R.color.black));
+            txtViewMargin.setText(" ");
+            newRow.addView(txtViewMargin);
+        }
+        LinearLayout linearLayout = new LinearLayout(context);
+        linearLayout.setMinimumWidth(1);
+        linearLayout.setMinimumHeight(5);
+
+        newRow.setBackgroundColor(ContextCompat.getColor(context, R.color.black));
+        return newRow;
+    }
+
 }

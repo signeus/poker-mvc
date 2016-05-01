@@ -9,18 +9,21 @@
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/scrollView2" >
+        android:id="@+id/scrollView3"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="1dp">
 
-        <LinearLayout
-            android:orientation="vertical"
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp">
+            android:layout_height="match_parent"
+            android:gravity="center">
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
                 android:layout_margin="5dp">
 
                 <TextView
@@ -29,7 +32,34 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:id="@+id/txvSmallBlind"
                     android:text="@string/small_blind"
+                    android:paddingTop="10dp"
                     android:gravity="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/big_blind"
+                    android:id="@+id/txvBigBlind"
+                    android:paddingTop="10dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/ante"
+                    android:id="@+id/txvAnte"
+                    android:paddingTop="10dp"
+                    android:gravity="center" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="10dp"
+                android:gravity="center"
+                android:layout_margin="5dp">
 
                 <EditText
                     android:layout_width="wrap_content"
@@ -39,21 +69,6 @@
                     android:id="@+id/edtSmallBlind"
                     android:paddingTop="15dp"
                     android:gravity="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/big_blind"
-                    android:id="@+id/txvBigBlind"
-                    android:gravity="center" />
 
                 <EditText
                     android:layout_width="wrap_content"
@@ -62,22 +77,6 @@
                     android:ems="10"
                     android:id="@+id/edtBigBlind"
                     android:paddingTop="15dp"
-                    android:gravity="center"
-                    android:layout_marginStart="31dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/ante"
-                    android:id="@+id/txvAnte"
                     android:gravity="center" />
 
                 <EditText
@@ -86,13 +85,15 @@
                     android:inputType="numberSigned"
                     android:ems="10"
                     android:id="@+id/edtAnte"
+                    android:paddingTop="15dp"
                     android:gravity="center" />
-            </LinearLayout>
 
-            <LinearLayout
-                android:orientation="horizontal"
+            </TableRow>
+
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
                 android:layout_margin="5dp">
 
                 <TextView
@@ -110,13 +111,14 @@
                     android:inputType="numberSigned"
                     android:ems="10"
                     android:id="@+id/edtStack"
-                    android:gravity="center"/>
-            </LinearLayout>
+                    android:paddingTop="10dp"
+                    android:gravity="center" />
+            </TableRow>
 
-            <LinearLayout
-                android:orientation="horizontal"
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
                 android:layout_margin="5dp">
 
                 <TextView
@@ -125,7 +127,8 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="@string/players"
                     android:id="@+id/txvPlayers"
-                    android:gravity="center"/>
+                    android:paddingTop="10dp"
+                    android:gravity="center" />
 
                 <EditText
                     android:layout_width="wrap_content"
@@ -135,12 +138,12 @@
                     android:id="@+id/edtPlayers"
                     android:paddingTop="10dp"
                     android:gravity="center" />
-            </LinearLayout>
+            </TableRow>
 
-            <LinearLayout
-                android:orientation="horizontal"
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
                 android:layout_margin="5dp">
 
                 <TextView
@@ -160,24 +163,23 @@
                     android:id="@+id/edtLeftOpponents"
                     android:paddingTop="10dp"
                     android:gravity="center" />
-            </LinearLayout>
+            </TableRow>
 
-            <LinearLayout
-                android:orientation="horizontal"
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center">
+                android:layout_height="match_parent"
+                android:paddingTop="10dp"
+                android:gravity="center"
+                android:layout_margin="5dp">
 
                 <Button
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:text="@string/calculate"
                     android:id="@+id/btnCalculate"
-                    android:layout_span="3"
-                    android:layout_margin="10dp" />
-            </LinearLayout>
-
-        </LinearLayout>
+                    android:layout_span="3" />
+            </TableRow>
+        </TableLayout>
     </ScrollView>
 
 
